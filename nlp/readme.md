@@ -7,12 +7,46 @@ While getting started with Natural-Language Processing with Python, I found the 
 * Python 2.7 and Pip.
 * [`pipenv`](https://pypi.python.org/pypi/pipenv). Install it using `pip install pipenv`
 
-### Download `en` model for `Spacy`
+## How to run
 
-Different language models have different levels of accuracy. The `lg` or large model is 1+ GB in size, but gives you good accuracy with your NLP work.
+First download different English language models:
 
-* `python -m spacy download en` will by-default download the `en_core_web_sm` model.
-* `python -m spacy download en_core_web_lg` will download the `en_core_web_lg` model.
+* `python -m spacy download en_core_web_sm`
+* `python -m spacy download en_core_web_md`
+* `python -m spacy download en_core_web_lg` (:exclamation: 1 GB in size!)
+
+* Run using the `small` language model: `python 1.py sm`
+* Run using `medium` language model: `python 1.py md`
+* Run using `large` language model: `python 1.py lg`
+
+(Language models are described below.)
+
+## About different language models
+
+
+### Model Size
+
+* Different language models have different sizes, due to the number of datapoints loaded.
+* Example sizes: `en_core_web_sm` is 37 MB, `en_core_web_md` model is 120 MB. `en_core_web_lg` is **1 GB+**.
+* Larger models might also result in higher processing times (perhaps due to I/O).
+
+### Model Accuracy
+
+For two strings, `help me with devops` and `i need help with devops`, the accuracy using different models is shown below.
+
+```
+$ python 1.py sm
+using model: sm
+similarity: 0.7242523745572412
+
+$ python 1.py md
+using model: md
+similarity: 0.9095811579120793
+
+$ python 1.py lg
+using model: lg
+similarity: 0.9155825546433053
+```
 
 ## References
 
